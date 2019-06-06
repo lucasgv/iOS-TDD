@@ -11,8 +11,16 @@ import XCTest
 
 class AvaliadorTests: XCTestCase {
 
+    private var joao: Usuario!
+    private var maria: Usuario!
+    private var jose: Usuario!
+    private var leiloeiro: Avaliador!
+
     override func setUp() {
-        // Antes de qualquer teste irá passar por aqui no ciclo de vida, pré inicializar algo por exemplo
+        joao = Usuario(nome: "Joao")
+        jose = Usuario(nome: "Jose")
+        maria = Usuario(nome: "Maria")
+        leiloeiro = Avaliador()
     }
 
     override func tearDown() {
@@ -23,14 +31,11 @@ class AvaliadorTests: XCTestCase {
     func testDeveEntenderLancesEmOrdemCrescente() {
         // Cenario
 
-        let joao = Usuario(nome: "Joao")
-        let jose = Usuario(nome: "Jose")
-        let maria = Usuario(nome: "Maria")
-
-        let leilao = Leilao(descricao: "Playstation 4")
-        leilao.propoe(lance: Lance(maria, 250.0))
-        leilao.propoe(lance: Lance(joao, 300.0))
-        leilao.propoe(lance: Lance(jose, 400.0))
+        //Facilitar cenário de teste, criar um teste data builder
+        let leilao = CriadorDeLeilao().para(descricao: "Playstation 4")
+                                    .lance(maria, 250.0)
+                                    .lance(joao, 300.0)
+                                    .lance(jose, 400.0).constroi()
 
         // Acao
 
@@ -46,8 +51,6 @@ class AvaliadorTests: XCTestCase {
 
     // Um exemplo de outro teste de diferente classe de equivalência
     func testDeveEntenderLeilaoComApenasUmLance() {
-        let joao = Usuario(nome: "joao")
-
         let leilao = Leilao(descricao: "Playstation 4")
 
         let lance = Lance(joao, 1000.0)
@@ -61,9 +64,6 @@ class AvaliadorTests: XCTestCase {
     }
 
     func testDeveEncontrarOsTresMaioresLances() {
-        let joao = Usuario(nome: "joao")
-        let maria = Usuario(nome: "Maria")
-
         let leilao = Leilao(descricao: "Playstation 4")
         leilao.propoe(lance: Lance(joao, 300.0))
         leilao.propoe(lance: Lance(maria, 400.0))

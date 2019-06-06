@@ -20,6 +20,7 @@
 		03FA4B29209354F50047D61B /* Leilao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FA4B28209354F50047D61B /* Leilao.swift */; };
 		599700A422A5F186001038D1 /* AvaliadorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599700A322A5F186001038D1 /* AvaliadorTests.swift */; };
 		599700A722A5F3AB001038D1 /* Avaliador.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599700A622A5F3AB001038D1 /* Avaliador.swift */; };
+		599700A922A8A80A001038D1 /* CriadorDeLeilao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599700A822A8A809001038D1 /* CriadorDeLeilao.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		03FA4B28209354F50047D61B /* Leilao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leilao.swift; sourceTree = "<group>"; };
 		599700A322A5F186001038D1 /* AvaliadorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvaliadorTests.swift; sourceTree = "<group>"; };
 		599700A622A5F3AB001038D1 /* Avaliador.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Avaliador.swift; sourceTree = "<group>"; };
+		599700A822A8A809001038D1 /* CriadorDeLeilao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriadorDeLeilao.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				03FA4B26209353CB0047D61B /* Usuario.swift */,
 				03FA4B28209354F50047D61B /* Leilao.swift */,
 				599700A622A5F3AB001038D1 /* Avaliador.swift */,
+				599700A822A8A809001038D1 /* CriadorDeLeilao.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				03FA4AF3209353270047D61B /* ViewController.swift in Sources */,
 				03FA4B25209353AF0047D61B /* Lance.swift in Sources */,
 				03FA4AF1209353270047D61B /* AppDelegate.swift in Sources */,
+				599700A922A8A80A001038D1 /* CriadorDeLeilao.swift in Sources */,
 				03FA4B27209353CB0047D61B /* Usuario.swift in Sources */,
 				03FA4AF9209353270047D61B /* Leilao.xcdatamodeld in Sources */,
 				599700A722A5F3AB001038D1 /* Avaliador.swift in Sources */,
