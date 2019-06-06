@@ -40,7 +40,7 @@ class AvaliadorTests: XCTestCase {
         // Acao
 
         let leiloeiro = Avaliador()
-        leiloeiro.avalia(leilao: leilao)
+        try? leiloeiro.avalia(leilao: leilao)
 
         // Validacao
         // Boa prática, sempre começar com o valor que espera no teste para facilitar a leitura
@@ -57,7 +57,7 @@ class AvaliadorTests: XCTestCase {
         leilao.propoe(lance: lance)
 
         let leiloeiro = Avaliador()
-        leiloeiro.avalia(leilao: leilao)
+        try? leiloeiro.avalia(leilao: leilao)
 
         XCTAssertEqual(1000.0, leiloeiro.menorLance())
         XCTAssertEqual(1000.0, leiloeiro.maiorLance())
@@ -71,7 +71,7 @@ class AvaliadorTests: XCTestCase {
         leilao.propoe(lance: Lance(maria, 600.0))
 
         let leiloeiro = Avaliador()
-        leiloeiro.avalia(leilao: leilao)
+        try? leiloeiro.avalia(leilao: leilao)
 
         let listaDeLances = leiloeiro.tresMaiores()
 
@@ -79,5 +79,12 @@ class AvaliadorTests: XCTestCase {
         XCTAssertEqual(600.0, listaDeLances.first?.valor)
         XCTAssertEqual(500.0, listaDeLances[1].valor)
         XCTAssertEqual(400.0, listaDeLances[2].valor)
+    }
+
+    func testDeveIgonorarLeilaoSemNenhumLance() {
+        let leilao = CriadorDeLeilao().para(descricao: "Playstation 4").constroi()
+        XCTAssertThrowsError(try leiloeiro.avalia(leilao: leilao), "Não é possível avaliar leilão sem lances") { (error) in
+            print(error.localizedDescription)
+        }
     }
 }

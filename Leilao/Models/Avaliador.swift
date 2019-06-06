@@ -8,13 +8,23 @@
 
 import Foundation
 
+enum erroAvaliador: Error {
+    case LeilaoSemLance(String)
+}
+
 class Avaliador {
     
     private var maiorDeTodos = Double.leastNonzeroMagnitude
     private var menorDeTodos = Double.greatestFiniteMagnitude
     private var maiores: [Lance] = []
-    
-    func avalia(leilao: Leilao) {
+
+    // configuramos o método avalia() para disparar uma exceção, caso não tenha lance em um leilão. Agora, precisamos escrever um teste para validar se isso realmente acontece.
+    func avalia(leilao: Leilao) throws {
+
+        if leilao.lances?.count == 0 {
+            throw erroAvaliador.LeilaoSemLance("Não é possível avaliar um leilao sem lances.")
+        }
+
         guard let lances = leilao.lances else { return }
         
         for lance in lances {
